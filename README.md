@@ -74,8 +74,15 @@ Optionally add required reviewers to the `production` environment in GitHub
 
 ### Calling the deployed service
 
-The service is private (`--no-allow-unauthenticated`). Grant callers
-`roles/run.invoker`, then:
+The service is private (`--no-allow-unauthenticated`), so a plain browser visit returns
+403. Callers need `roles/run.invoker`. To use the ADK chat UI in a browser, open a local
+authenticated proxy and visit http://localhost:8080:
+
+```bash
+gcloud run services proxy simpleagent --region us-central1 --port 8080
+```
+
+From scripts, send an identity token:
 
 ```bash
 URL=$(gcloud run services describe simpleagent --region us-central1 --format 'value(status.url)')

@@ -116,6 +116,7 @@ jobs:
             GOOGLE_GENAI_USE_VERTEXAI=TRUE
             GOOGLE_CLOUD_PROJECT=${{ vars.GCP_PROJECT_ID }}
             GOOGLE_CLOUD_LOCATION=${{ vars.GCP_REGION }}
+            SERVE_WEB_UI=true
           labels: |
             commit-sha=${{ github.sha }}
       - name: Mint identity token for smoke test
