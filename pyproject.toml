@@ -1,0 +1,22 @@
+[project]
+name = "simpleagent"
+version = "0.1.0"
+description = "A Google ADK question-answering agent deployed to Cloud Run."
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+# Binding 0.0.0.0 is intended inside the container.
+"app/main.py" = ["S104"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit"]
+pythonpath = ["."]
+filterwarnings = ["ignore::UserWarning"]

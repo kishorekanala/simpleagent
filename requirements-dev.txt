@@ -1,0 +1,5 @@
+# Development, CI and evaluation dependencies.
+-r requirements.txt
+google-adk[eval]==1.28.0
+pytest==9.1.1
+ruff==0.17.0

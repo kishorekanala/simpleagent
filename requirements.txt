@@ -1,0 +1,2 @@
+# Runtime dependencies (installed into the Cloud Run image).
+google-adk==1.28.0
